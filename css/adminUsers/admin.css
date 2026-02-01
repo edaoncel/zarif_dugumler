@@ -1,0 +1,586 @@
+/* admin.css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6; 
+}
+
+/*
+ * ANA KONTEYNER
+ */
+.admin-container {
+    display: flex; 
+    min-height: 100vh; 
+}
+
+/*
+ * SOL SÜTUN (Sidebar) - Masaüstü Stilleri
+ */
+.sidebar {
+    width: 20%; 
+    background-color: #0b4426; 
+    color: #ecf0f1; 
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    
+    position: sticky; /* Masaüstünde sabit kalması için */
+    top: 0;
+    /* height: 100vh; ve overflow-y: auto; kaldırıldı, kaydırma body'ye geçti */
+    
+    /* Masaüstü geçişi */
+    transition: width 0.3s, height 0.3s, transform 0.3s ease-out; 
+}
+
+/* HAMBURGER BUTON KAPSAYICISI (Masaüstünde Gizli) */
+.hamburger-menu-btn-container {
+    display: none; /* Masaüstünde gizli */
+}
+
+/* Profil Alanı */
+.profile-area {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #efeff5;
+    width: 80%;
+}
+
+/* Profil Fotoğrafı Kapsayıcısı ve İkon Stilleri */
+.profile-photo-container {
+    position: relative; 
+    margin: 0 auto 10px auto; 
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid #b8ad8870; 
+}
+
+.profile-photo .fa-user-circle {
+    font-size: 6em;
+    color: #3498db;
+}
+
+/* Düzenleme ve Silme İkonları (Konumlandırma) */
+.edit-icon {
+    position: absolute; bottom: 0; right: 0; 
+    color: rgb(39, 121, 228); background-color: #fff;
+    border-radius: 50%; padding: 3px; cursor: pointer;
+    font-size: 1em; box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.edit-icon:hover { background-color: #f5f1f1; }
+
+.delete-icon {
+    position: absolute; bottom: 0; right: 28px;
+    color: rgb(255, 0, 0); background-color: #fff;
+    border-radius: 50%; padding: 3px; cursor: pointer;
+    font-size: 1em; text-decoration: none; 
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.delete-icon:hover { background-color: #f5f1f1; }
+
+.admin-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Menü Navigasyonu */
+.main-nav {
+    width: 100%;
+    flex-grow: 1; 
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #ecf0f1;
+    transition: background-color 0.3s;
+    white-space: nowrap; 
+}
+
+.main-nav ul li a:hover {
+    background-color: #b8ad88ea;
+    border-left: 5px solid #efeff5; 
+    padding-left: 15px;
+}
+
+/* Aktif Menü Öğesi Stili */
+.main-nav ul li a.active {
+    background-color: #b8ad8870 !important; 
+    color: #fff !important;
+    border-left: 5px solid #8bae89 !important; 
+    font-weight: bold;
+}
+
+.main-nav ul li a i {
+    margin-right: 10px;
+    width: 20px; 
+    text-align: center;
+}
+
+.logout-link {
+    display: block;
+    margin: 20px auto; 
+    padding: 10px 20px;
+    background-color: #7d262a; 
+    color: white; 
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    width: 60%; 
+    transition: background-color 0.3s;
+    font-size: 0.9em;
+}
+
+.logout-link:hover {
+    background-color: #c0392b;
+    border-left: none !important;
+    padding-left: 20px !important;
+}
+
+/*
+ * SAĞ KISIM (İçerik Alanı)
+ */
+.content-area {
+    width: 80%; 
+    padding: 40px;
+    background-color: #efeff5;
+}
+
+/* Mesaj Kutuları */
+.alert {
+    padding: 10px; margin-bottom: 20px; border-radius: 5px;
+    font-weight: bold; opacity: 1; transition: opacity 0.5s ease-out; 
+}
+.alert.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.alert.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+/* Başlık ve Buton Alanı */
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+/* Buton Stilleri */
+.btn {
+    padding: 8px 15px; border: none; border-radius: 4px;
+    cursor: pointer; transition: background-color 0.3s; font-size: 0.9em;
+}
+
+.btn-primary { background-color: #7d262a; color: white; }
+.btn-primary:hover { background-color: #e74c3c; }
+
+.btn-secondary { background-color: #3498db; color: white; }
+.btn-secondary:hover { background-color: #2980b9; }
+
+.btn-icon {
+    width: 30px; height: 30px; padding: 0; line-height: 30px; 
+    text-align: center; border-radius: 3px;
+}
+
+.btn-edit { background-color: #f39c12; color: white; }
+.btn-edit:hover { background-color: #e67e22; }
+
+.btn-delete { background-color: #e74c3c; color: white; }
+.btn-delete:hover { background-color: #c0392b; }
+
+/* Filtre Alanı */
+.filter-area {
+    background-color: #efeff5;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    border: 1px solid #efeff5;
+}
+
+.filter-form {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    flex-wrap: wrap; 
+}
+
+.filter-group label {
+    display: block; font-weight: bold; margin-bottom: 5px;
+    color: #555; font-size: 0.9em;
+}
+
+.filter-group select, .filter-group input[type="number"] {
+    padding: 8px; border: 1px solid #ccc; border-radius: 4px;
+    width: 150px; font-size: 0.9em;
+}
+
+/* Data Tablosu Stili */
+.product-list-table {
+    overflow-x: auto; 
+}
+.data-table {
+    width: 100%; border-collapse: collapse; background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); min-width: 700px;
+}
+
+.data-table th, .data-table td {
+    padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+    background-color: #8bae89; color: #2c3e50; font-weight: bold;
+    text-transform: uppercase; font-size: 0.9em;
+}
+
+.data-table tbody tr:hover { background-color: #f5f5f5; }
+
+.product-image-cell img {
+    width: 50px; height: 50px; object-fit: cover;
+    border-radius: 3px; border: 1px solid #ddd;
+}
+
+.old-price { text-decoration: line-through; color: #999; font-size: 0.9em; }
+.new-price { color: #e74c3c; font-weight: bold; }
+
+.action-buttons {
+    display: flex; align-items: center; gap: 3px; white-space: nowrap; 
+}
+
+/* --- YENİ FORM TASARIMI İÇİN EKLENTİLER (PRODUCT FORM) --- */
+.product-form {
+    max-width: 900px; margin: 0 auto 30px auto; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border: 1px solid #e0e0e0;
+    padding: 20px; background-color: #ffffff; border-radius: 8px;
+}
+
+.product-form .form-row {
+    display: flex; gap: 30px; margin-bottom: 25px; flex-wrap: wrap; 
+}
+
+.product-form .form-column { flex: 1; min-width: 300px; }
+.product-form .form-group { margin-bottom: 20px; padding: 0; gap: 5px; }
+
+.product-form label {
+    font-weight: 600; color: #2c3e50; margin-bottom: 7px;
+    font-size: 0.95em; display: flex; align-items: center;
+}
+
+.product-form label:after {
+    content: '*'; color: #e74c3c; margin-left: 4px;
+    font-weight: bold; font-size: 1.1em;
+}
+
+/* Yıldız işareti zorunlu olmayan alanlardan kaldırıldı */
+.product-form label[for="color"]:after,
+.product-form label[for="new_price"]:after,
+.product-form label[for="sub_category_id"]:after,
+.product-form label[for="gender"]:after,
+.product-form label[for="size"]:after,
+.product-form label[for="description"]:after { content: none; }
+
+.product-form input[type="text"], 
+.product-form input[type="number"], 
+.product-form select,
+.product-form textarea,
+.product-form input[type="file"] {
+    width: 100%; padding: 12px; border: 1px solid #bdc3c7;
+    border-radius: 6px; margin-top: 0; font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s; background-color: #f9f9f9;
+}
+
+/* ================================================= */
+/* YENİ ANİMASYONLU HAMBURGER İKON STİLLERİ (KÜÇÜLTÜLDÜ) */
+/* ================================================= */
+
+.menu-btn-5 {
+    height: 28px; /* KÜÇÜLTÜLDÜ */
+    width: 35px; /* KÜÇÜLTÜLDÜ */
+    cursor: pointer;
+    position: relative; 
+    margin: 0;
+}
+
+.menu-btn-5 span:nth-child(1),
+.menu-btn-5 span:nth-child(1)::before,
+.menu-btn-5 span:nth-child(1)::after {
+    background: #ecf0f1; 
+    content: '';
+    position: absolute;
+    width: 35px; /* KÜÇÜLTÜLDÜ */
+    height: 2px; /* ÇİZGİ KALINLIĞI KÜÇÜLTÜLDÜ */
+    margin-top: 13px;
+
+    transition: .3s ease-in-out;
+}
+
+.menu-btn-5 span:nth-child(1)::before {
+    margin-top:-10px; /* AYARLANDI */
+    transition: .3s ease-in-out .3s;
+}
+
+.menu-btn-5 span:nth-child(1)::after {
+    margin-top:10px; /* AYARLANDI */
+    transition: .3s ease-in-out .3s;
+}
+
+.menu-btn-5 span:nth-child(2) {
+    background: #ecf0f1;
+    content: '';
+    position: absolute;
+    width: 0px; 
+    height: 2px; /* ÇİZGİ KALINLIĞI KÜÇÜLTÜLDÜ */
+    margin-top: 13px;
+    
+    transform: rotate(-45deg);
+
+    transition: .3s ease-in-out;
+}
+
+/* --- ACTIVE (X) STİLLERİ --- */
+.menu-btn-5.active span:nth-child(1)::before,
+.menu-btn-5.active span:nth-child(1)::after {
+    margin-top:0;
+}
+
+.menu-btn-5.active span:nth-child(1) {
+    transition: .5s ease-in-out .5s;
+    transform:rotate(45deg);
+}
+
+.menu-btn-5.active span:nth-child(2) {
+    width: 35px; /* AYARLANDI */
+    
+    transition: .3s ease-in-out .8s;
+}
+
+
+/* ================================================= */
+/* MEDYA SORGULARI (MOBİL UYUMLULUK) */
+/* ================================================= */
+
+/* 1. Tablet ve Mobil Genel Düzen (1024px Altı) */
+@media (max-width: 1024px) {
+    .admin-container {
+        flex-direction: column; 
+    }
+    .sidebar {
+        width: 100%; 
+        height: auto; 
+        position: static;
+        overflow-y: visible;
+        padding: 15px 0;
+    }
+    .content-area {
+        width: 100%; 
+        padding: 20px 15px; 
+    }
+}
+
+/* 2. Telefon Ekranları İçin (768px Altı) - ANİMASYONLU MENÜ AKTİF */
+@media (max-width: 768px) {
+    
+    /* 1. SİDEBAR KAPSAYICISI (ANİMASYON KRİTİK NOKTASI) */
+    .sidebar {
+        /* BAŞLIK YÜKSEKLİĞİ 50px */
+        max-height: 50px; 
+        padding: 0;
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center; 
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow-y: hidden; 
+        z-index: 1000;
+        
+        transition: max-height 0.4s ease-in-out; 
+    }
+    
+    /* 2. AÇIK MENÜ STİLİ */
+    .sidebar.menu-open { 
+        max-height: 800px; 
+        overflow-y: auto; 
+        
+        flex-direction: column; 
+        align-items: center; 
+        padding-top: 5px; 
+    }
+
+    /* 3. HAMBURGER BUTONU KAPSAYICISI */
+    .hamburger-menu-btn-container {
+        display: block; 
+        position: static; 
+        margin-left: 10px; 
+        flex-shrink: 0; 
+        z-index: 1010;
+        padding: 0;
+        height: 50px; 
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Menü Açıkken Butonu Sağ Üste Sabitle */
+    .sidebar.menu-open .hamburger-menu-btn-container { 
+        position: absolute; 
+        right: 15px;
+        top: 0;
+        height: 50px; 
+        margin-left: 0;
+    }
+    
+    /* 4. PROFİL ALANI */
+    .profile-area {
+        /* Kapalıyken yatay hizalama */
+        position: absolute; 
+        left: 55%; /* SAĞA KAYDIRILDI (50% -> 55%) */
+        transform: translateX(-50%); 
+        
+        display: flex; 
+        flex-direction: row; 
+        align-items: center; 
+        gap: 8px; /* FOTOĞRAF VE İSİM ARASI BOŞLUK ARTIRILDI (6px -> 8px) */
+
+        border-bottom: none; 
+        margin-bottom: 0;
+        height: 100%;
+        padding: 0; 
+        width: auto; 
+        line-height: 1;
+        z-index: 999; 
+    }
+    
+    /* YENİ: Menü Açıkken Profil Alanı Düzeni */
+    .sidebar.menu-open .profile-area { 
+        position: static; 
+        transform: none; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        padding: 0 10px 5px 10px; 
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+        width: 100%; 
+        margin-bottom: 5px; 
+        gap: 0;
+    }
+    
+    /* KAPALI MENÜ (45px) - PROFİL FOTOĞRAFI */
+    .profile-photo-container {
+        width: 45px; 
+        height: 45px; 
+        margin: 0; 
+        flex-shrink: 0;
+    }
+    
+    .profile-photo img, .profile-photo .fa-user-circle {
+        width: 45px; 
+        height: 45px; 
+        font-size: 2.3em; 
+    }
+    
+    /* KAPALI MENÜ - İKON KÜÇÜLTME */
+    .profile-area .edit-icon { 
+        font-size: 0.7em; 
+        padding: 2px;
+    }
+    .profile-area .delete-icon {
+        font-size: 0.7em; 
+        padding: 2px;
+        right: 25px; 
+    }
+    
+    /* AÇIK MENÜ - FOTOĞRAF BOYUTU (70px) */
+    .sidebar.menu-open .profile-photo-container { 
+        width: 70px; 
+        height: 70px; 
+        margin: 0 auto 5px auto; 
+    }
+    
+    .sidebar.menu-open .profile-photo img, 
+    .sidebar.menu-open .profile-photo .fa-user-circle { 
+        width: 70px; 
+        height: 70px; 
+        font-size: 3.5em; 
+    }
+
+    /* AÇIK MENÜ - İKON BOYUTLARI */
+    .sidebar.menu-open .edit-icon { 
+        font-size: 0.9em; 
+        padding: 3px;
+    }
+    .sidebar.menu-open .delete-icon {
+        font-size: 0.9em; 
+        padding: 3px;
+        right: 28px;
+    }
+
+    /* İsim boyutu */
+    .admin-name { font-size: 0.9em; }
+    .sidebar.menu-open .admin-name { font-size: 1em; margin-top: 4px; }
+    
+    /* 5. NAVİGASYON LİSTESİ */
+    .main-nav ul li a {
+        padding: 12px 20px; 
+    }
+
+    /* Çıkış Yap butonu boşluğu */
+    .logout-link {
+        margin: 10px auto 15px auto; 
+        width: 70%; 
+        padding: 8px 20px; 
+    }
+
+    /* Menü Kapalıyken Navigasyonun Animasyonlu Gizlenmesi */
+    .main-nav {
+        display: block; 
+        max-height: 0;
+        overflow: hidden;
+        width: 100%;
+        opacity: 0; 
+        transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    /* Mobil menü açıldığında görünüyor */
+    .sidebar.menu-open .main-nav { 
+        max-height: 700px; 
+        opacity: 1; 
+        transition: max-height 0.4s ease-in-out 0.1s, opacity 0.3s ease-in-out 0.1s; 
+    }
+
+    /* İçerik alanına, sabit sidebar kadar üst boşluk veriyoruz */
+    .content-area {
+        padding-top: 70px; 
+    }
+    
+    /* Tablo gizleme ayarları ve butonlar (Aynı kaldı) */
+    .data-table th:nth-child(4), .data-table td:nth-child(4), .data-table th:nth-child(5), .data-table td:nth-child(5), .data-table th:nth-child(6), .data-table td:nth-child(6), .data-table th:nth-child(8), .data-table td:nth-child(8) { display: none; }
+    .btn-icon { width: 25px; height: 25px; line-height: 25px; font-size: 0.8em; }
+    .product-form .form-row { flex-direction: column; gap: 0; }
+    .product-form .form-column { min-width: 100%; }
+    .product-form .form-group { margin-bottom: 15px; }
+}

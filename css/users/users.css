@@ -1,0 +1,314 @@
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #f0f2f5; 
+    color: #333;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 100vh; 
+    overflow: hidden; 
+    overflow-x: hidden;
+    margin: 0; 
+}
+
+.login-page-container {
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px; 
+    display: flex;
+    flex-direction: column;
+    height: 95vh; 
+    overflow: hidden; 
+    position: relative;
+}
+
+.image-header {
+    width: 100%;
+    height: 220px;
+    /* GÜNCELLEME: HER YENİLEMEDE DEĞİŞEN RASTGELE RESİM */
+    background-image: url('https://picsum.photos/800/600'); 
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    position: relative;
+    z-index: 1;
+    display: block; 
+}
+
+.image-header::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; 
+    left: 0;
+    width: 100%;
+    height: 60px; 
+    background-color: #fff; 
+    border-top-left-radius: 50% 100px; 
+    border-top-right-radius: 50% 100px; 
+    transform: scaleX(1.5); 
+    z-index: 2; 
+    display: block; 
+}
+
+.form-content-area {
+    flex-grow: 1; 
+    padding: 20px 30px 30px 30px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    overflow-y: auto; 
+    position: relative;
+    z-index: 3; 
+}
+
+.welcome-text {
+    color: #333; 
+    font-size: 2.1em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left; 
+}
+
+.form-box {
+    background: none; 
+    padding: 0; 
+    box-shadow: none; 
+    max-width: none; 
+    height: auto;
+    overflow-y: visible; 
+}
+
+.message { 
+    padding: 10px;
+    margin-bottom: 15px; 
+    border-radius: 4px; 
+    font-weight: bold;
+    text-align: center;
+}
+
+.message.success { 
+    background-color: #e6ffed; 
+    color: #1f1616; 
+    border: 1px solid #cce5d4; 
+}
+
+.message.error { 
+    background-color: #f8d7da; 
+    color: #721c24; 
+    border: 1px solid #f5c6cb; 
+}
+
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500; 
+    color: #555;
+    font-size: 0.9em;
+}
+
+input[type="email"], 
+input[type="text"], 
+.password-group input,
+.form-box input:not([type="checkbox"]) {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    box-sizing: border-box; 
+    font-size: 0.95em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="email"]:focus, 
+input[type="text"]:focus, 
+.password-group input:focus,
+.form-box input:not([type="checkbox"]):focus {
+    border-color: #a0a6eb; 
+    box-shadow: 0 0 0 3px rgba(118, 110, 245, 0.2); 
+    outline: none; 
+}
+
+.toggle-password {
+    position: absolute;
+    top: 35px;
+    right: 12px; 
+    color: #888;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 10;
+}
+
+.password-group input { 
+    padding-right: 40px;
+}
+
+.links-and-remember {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.88em; 
+}
+
+.remember-me label {
+    display: inline;
+    font-weight: normal;
+    color: #666;
+}
+
+.links-and-remember a {
+    color: #766ef5; 
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.links-and-remember a:hover {
+    text-decoration: underline;
+}
+
+button[type="submit"] {
+    width: 100%; 
+    background-color: #6f0f0f; 
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+    background-color: #131212; 
+    transform: translateY(-2px); 
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+button[type="submit"]:disabled {
+    background-color: #b0aaff; 
+    cursor: not-allowed;
+}
+
+div[style="text-align: center; margin-top: 20px;"] {
+    margin-top: 20px !important;
+    font-size: 0.9em;
+    color: #666;
+}
+
+div[style="text-align: center; margin-top: 20px;"] a {
+    color: #766ef5;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+div[style="text-align: center; margin-top: 20px;"] a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 1000px) {
+    
+    .login-page-container {
+        max-width: 1000px; 
+        height: 80vh; 
+        flex-direction: row; 
+        border-radius: 15px; 
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-content-area {
+        width: 45%; 
+        padding: 30px;
+        
+    }
+
+    .image-header {
+        width: 55%; 
+        height: 100%; 
+        order: 2; 
+        border-radius: 0 15px 15px 0; 
+        border-top-left-radius: 0;
+        border-top-right-radius: 15px; 
+    }
+
+    .image-header::after {
+        display: none;
+    }
+    
+    .welcome-text {
+        font-size: 2.2em;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 999px) { 
+    .login-page-container {
+        width: 95%; 
+        height: 98vh; 
+        border-radius: 15px; 
+    }
+
+    .image-header {
+        height: 200px; 
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .image-header::after {
+        bottom: -20px;
+        height: 40px;
+        transform: scaleX(1.2); 
+    }
+
+    .form-content-area {
+        padding: 15px 20px 20px 20px; 
+    }
+
+    .welcome-text {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 0.85em;
+    }
+
+    input[type="email"], 
+    input[type="text"], 
+    .password-group input,
+    .form-box input:not([type="checkbox"]) {
+        padding: 8px 10px;
+        font-size: 0.85em;
+    }
+    
+    .toggle-password {
+        top: 30px;
+        right: 10px;
+    }
+
+    .password-group input { 
+        padding-right: 35px;
+    }
+
+    .links-and-remember {
+        margin-bottom: 20px;
+        font-size: 0.8em;
+    }
+
+    button[type="submit"] {
+        padding: 10px 15px;
+        font-size: 0.95em;
+    }
+}

@@ -1,0 +1,140 @@
+/*
+ * orderDetail.css - MODERN İKİ SÜTUNLU PANEL STİLLERİ
+ * Renk Paleti: #0b4426, #b8ad88, #efeff5, #7d262a, #8bae89, #3498db
+ */
+
+/* ====================================
+   GENEL VE KART STİLLERİ
+   ==================================== */
+
+.container-fluid {
+    padding-top: 20px;
+}
+
+/* Genel Kart Görünümü */
+.card {
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    background-color: #fff; /* Tüm kartları beyaz yaptık */
+    border: 1px solid #efeff5; 
+}
+.card-header {
+    border-bottom: none !important;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: #efeff5 !important; /* Standart kart başlığı */
+}
+.card-header h6 {
+    display: flex;
+    align-items: center;
+}
+
+.btn-success { /* Not Kaydet Butonu */
+    background-color: #31702d;
+    border-color: #31702d;
+}
+.btn-success:hover {
+    background-color: #255921;
+    border-color: #8bae89;
+}
+
+
+/* ====================================
+   1. SİPARİŞ ÖZETİ/DURUM KARTI (SOL ÜST)
+   ==================================== */
+
+.status-card {
+    border-left: 5px solid;
+}
+.status-card .card-footer {
+    background-color: #efeff5 !important; /* Alt kısım rengi */
+}
+/* Durum Rozeti Renkleri */
+.status-badge {
+    padding: .35rem .75rem;
+    border-radius: 50rem; 
+    font-weight: 700;
+}
+.status-badge.bg-warning { background-color: #f7b00a !important; } /* Beklemede */
+.status-badge.bg-info { background-color: #720b0b !important; }   /* Hazırlanıyor */
+.status-badge.bg-primary { background-color: #2381d9 !important; } /* Kargolandı */
+.status-badge.bg-success { background-color: #15894b !important; } /* Teslim Edildi */
+.status-badge.bg-danger { background-color: #cd1d26 !important; }  /* İptal Edildi */
+
+/* Dinamik Renkli Kenarlıklar */
+.status-warning { border-color: #f7b00a !important; }
+.status-info { border-color: #720b0b !important; }
+.status-primary { border-color: #2381d9 !important; }
+.status-success { border-color: #15894b !important; }
+.status-danger { border-color: #cd1d26 !important; }
+
+
+/* ====================================
+   2. YAN PANEL (SAĞ SÜTUN) KARTLARI
+   ==================================== */
+
+/* Başlık ve Kenarlık Renkleri */
+.card-header.bg-primary { background-color: #0b4426 !important; }
+.card-header.bg-danger { background-color: #7d262a !important; }
+.card-header.bg-info { background-color: #8bae89 !important; }
+.border-left-info { border-left: 0.25rem solid #8bae89 !important; }
+
+
+/* Bilgi Kutusu İçerik Stilleri (info-box-item) */
+.info-box-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #efeff5; 
+}
+.info-label {
+    font-size: 0.85rem;
+    color: #0b4426; 
+}
+.info-value a,
+.info-value .text-dark {
+    color: #7d262a !important; 
+}
+.info-value.text-primary {
+    color: #8bae89 !important; /* Kargo Takip No Rengi */
+}
+.address-line {
+    margin-bottom: 5px;
+}
+
+/* ====================================
+   3. ÜRÜN LİSTESİ TABLOSU
+   ==================================== */
+
+.table-responsive {
+    border-radius: 0.5rem;
+}
+.table-hover tbody tr:hover {
+    background-color: #f9f9f970; /* Hafif hover */
+}
+.table thead.bg-light {
+    background-color: #efeff5 !important;
+}
+.table th {
+    color: #0b4426;
+    font-weight: 600;
+    border-top: none;
+}
+.table td {
+    vertical-align: middle;
+    border-top: 1px solid #efeff5;
+}
+
+/* Genel Başlık Renkleri */
+h4 .text-primary, h1 .text-primary {
+    color: #0b4426 !important;
+}
+
+/* Kırmızı Tonlar */
+.text-danger {
+    color: #7d262a !important;
+}
+.text-danger:hover {
+    color: #c0392b !important;
+}

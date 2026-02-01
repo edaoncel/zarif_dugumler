@@ -1,0 +1,37 @@
+body {
+    background-color: rgb(239, 239, 245);
+}
+.product-thumb {
+    max-width: 50px;
+    height: auto;
+    border-radius: 4px;
+    display: block; /* Resmi ortalamak için */
+    margin: 0 auto;
+}
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.data-table th {
+    background-color: #8bae89;
+}
+
+.table-responsive {
+    overflow-x: auto; /* Yatay kaydırmayı etkinleştir */
+    -webkit-overflow-scrolling: touch; /* iOS'ta daha iyi kaydırma deneyimi */
+    width: 100%; /* Kapsayıcının %100 genişliğini kullanmasını sağla */
+}
+
+/* Tablonun mobil cihazlarda taşmasını engellemek için minimum genişlik tanımlanabilir */
+.data-table {
+    min-width: 768px; /* Tablonun sığabileceği en düşük genişlik. 
+                         Bu değer, tüm sütunlar sığacak şekilde ayarlanmalıdır. */
+    width: 100%; /* Responsive kapsayıcı içinde tam genişlik */
+    /* Diğer tablo stilleriniz burada devam edebilir. */
+}

@@ -1,0 +1,182 @@
+body {
+    background-color: rgb(239, 239, 245);
+}
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Yönetici Ekle Butonu Stilleri */
+.btn-add-users {
+    background-color: #7d262a; /* Buton Rengi */
+    border-color: #7d262a;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-left: auto;
+}
+.btn-add-users:hover {
+    background-color: #c0392b; /* Buton Hover Rengi */
+}
+
+/* Tablo Stilleri */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white; 
+}
+.users-table thead th {
+    background-color: #8bae89; /* Tablo Başlık Arka Plan Rengi */
+    color: #0b4426; /* Tablo Başlık Yazı Rengi */
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap; 
+}
+.users-table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+    white-space: nowrap; 
+    color: #0b4426; /* Tablo Gövde Yazı Rengi */
+}
+.users-table tbody tr:hover {
+    background-color: #f1f1f1; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+/* Aksiyon Butonları */
+.action-btn {
+    padding: 5px 8px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 5px;
+}
+.btn-edit {
+    background-color: #ffc107; /* Sarımsı */
+    color: black;
+}
+.btn-delete {
+    background-color: #dc3545; /* Kırmızı */
+    color: white;
+}
+
+/* Form Kartı Stilleri */
+.form-card { 
+    background-color: #f8f8f8; 
+    padding: 20px; 
+    border-radius: 8px; 
+    margin-bottom: 30px; 
+    border: 1px solid #ddd; 
+}
+.form-group { 
+    margin-bottom: 15px; 
+}
+.form-group label { 
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+    color: #333; 
+}
+.form-group input { 
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+}
+
+/* Form Gönderme/İptal Butonları */
+.btn-form-submit { 
+    background-color: #8bae89; 
+    color: white; 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 14px; 
+    transition: background-color 0.3s; 
+}
+.btn-form-submit:hover { 
+    background-color: #0b4426; 
+}
+.btn-form-cancel { 
+    background-color: #6c757d; 
+    color: white; 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 14px; 
+    text-decoration: none; 
+    display: inline-block; 
+    margin-right: 10px; 
+}
+
+/* Mesaj Kutusu Stilleri */
+.alert-danger { 
+    background-color: #f8d7da; 
+    border: 1px solid #f5c6cb; 
+    color: #721c24; 
+    padding: 15px; 
+    border-radius: 4px; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+    opacity: 1; 
+    transition: opacity 0.5s ease-out;
+}
+.alert-success { 
+    background-color: #d4edda; 
+    border: 1px solid #c3e6cb; 
+    color: #155724; 
+    padding: 15px; 
+    border-radius: 4px; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+    opacity: 1; 
+    transition: opacity 0.5s ease-out;
+}
+.alert-warning {
+    padding: 15px; 
+    border: 1px solid #ffcc00; 
+    background-color: #fff3cd; 
+    color: #664d03; 
+    margin-top: 20px;
+}
+
+/* Şifre Göster/Gizle Stilleri */
+.password-wrapper {
+    position: relative; 
+}
+.password-wrapper input[type="password"],
+.password-wrapper input[type="text"] {
+    padding-right: 40px; 
+}
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%; 
+    transform: translateY(calc(-50% + 2px));
+    cursor: pointer;
+    color: #7d262a; 
+    font-size: 16px;
+    z-index: 10; 
+    padding: 5px; 
+}

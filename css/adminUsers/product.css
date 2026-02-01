@@ -1,0 +1,313 @@
+
+    /* ================================================= */
+    /* TEMEL STİLLER VE RENK PALETİ */
+    /* ================================================= */
+    :root {
+        --primary-color: #0b4426; /* Mavi (Vurgu) */
+        --success-color: #28a745; /* Yeşil (Aktif, Stok Var) */
+        --danger-color: #dc3545; /* Kırmızı (Stok Yok, Hata) */
+        --bg-page: #f4f6f9; /* Sayfa Arka Planı */
+        --card-bg: #ffffff; /* Kart Arka Planı */
+        --border-color: #e9ecef; /* Çok Açık Gri Kenarlık */
+        --header-bg: #f8f9fa; /* Başlık/Bölüm Arka Planı */
+        --text-main: #212529;
+        --text-muted: #6c757d;
+    }
+
+
+    .top-page-area {
+        display: flex;
+        justify-content: flex-end; /* Sağ tarafa hizala */
+        margin-bottom: 20px; /* Ürün kartından ayır */
+        padding-right: 5px; /* Konteyner padding'ine göre ayar */
+    }
+    
+    /* Eski Stil: Başlığı ve butonu aynı satırda tutan esnek başlık alanı. Yalnızca Ürün Başlığı Kartı'nı tutacak şekilde yeniden düzenlendi. */
+    .page-header-wrapper {
+        /* display: flex; kaldırıldı */
+        /* justify-content: space-between; kaldırıldı */
+        /* align-items: center; kaldırıldı */
+        margin-bottom: 25px; /* Alttaki grid ile arayı aç */
+    }
+  
+
+    /* 1. EN ÜST BAŞLIK ALANI (Ürün Adı ve ID) */
+    .product-title-card {
+        background: var(--card-bg);
+        padding: 20px 30px;
+        border-radius: 8px;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        border-left: 5px solid var(--primary-color);
+        flex-grow: 1; 
+        /* margin-right: 20px; kaldırıldı */
+    }
+    .product-title-card h2 { 
+        font-size: 1.8em;
+        margin: 0 0 5px 0;
+        font-weight: 700;
+        color: var(--text-main);
+        display: inline-block;
+    }
+    .product-title-card p {
+        font-size: 0.95em;
+        color: var(--text-muted);
+        margin: 0;
+    }
+    .product-title-card .btn-primary-wrapper {
+        margin-top: 15px; /* Düzenle butonu için üst boşluk */
+    }
+
+
+    /* 2. BUTONLAR VE STOK ROZETİNİ İÇEREN KART */
+    .header-actions-card {
+        /* Bu kartın kullanımı kaldırıldı veya yeri değişti. Stil korundu ancak içerik düzenlemesi değişti */
+        background: var(--card-bg);
+        padding: 15px 30px;
+        border-radius: 8px;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        display: flex;
+        justify-content: flex-end; /* Butonları sağa hizala */
+        align-items: center;
+        margin-bottom: 25px; 
+    }
+
+    .btn {
+        padding: 8px 18px;
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-left: 10px;
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+    }
+    .btn i { margin-right: 5px; }
+
+    .btn-primary { 
+        background-color: #f39c12; /* Turuncu */
+        color: white; 
+    }
+    .btn-primary:hover { background-color: #e19212ff; }
+    
+    /* 3. ANA İÇERİK DÜZENİ (2 Sütun) */
+    .main-content-grid {
+        display: flex;
+        gap: 20px;
+    }
+    
+    /* Sol Sütun (Bilgiler) */
+    .info-col {
+        flex: 1; /* Kalan alanı kapla */
+        order: 0; 
+    }
+    .tab-card {
+        background: var(--card-bg);
+        border-radius: 8px;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+
+    /* Sağ Sütun (Resim) */
+    .image-col {
+        flex: 0 0 320px; /* Sabit genişlik */
+        order: 1; 
+    }
+    .image-card {
+        background: var(--card-bg);
+        border-radius: 8px;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        padding: 20px;
+        text-align: center;
+    }
+    .product-main-image {
+        width: 100%;
+        height: auto;
+        max-height: 350px; /* ANA RESİM MAKSİMUM YÜKSEKLİK AYARI */
+        object-fit: contain;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+    
+    .total-stock-info {
+        margin-top: 15px;
+        padding: 10px;
+        background-color: var(--header-bg);
+        border-radius: 4px;
+        font-weight: 600;
+        color: var(--primary-color);
+        border: 1px solid var(--border-color);
+    }
+
+    /* Sekme Navigasyonu ve İçeriği */
+    .tab-nav {
+        display: flex;
+        border-bottom: 1px solid var(--border-color);
+        background-color: var(--header-bg);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .tab-button {
+        background: none;
+        border: none;
+        padding: 12px 20px;
+        cursor: pointer;
+        font-size: 0.95em;
+        font-weight: 600;
+        color: var(--text-muted);
+        transition: color 0.2s, background-color 0.2s;
+        border-right: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+    }
+    .tab-button i {
+        margin-right: 8px;
+    }
+    .tab-button.active {
+        color: var(--primary-color);
+        background-color: var(--card-bg); 
+        border-bottom: 2px solid var(--primary-color); 
+    }
+
+    /* Bilgi Öğesi Stili */
+    .tab-content { padding: 20px; }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+    .info-item {
+        display: flex;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .info-item:last-child { border-bottom: none; }
+    .info-item strong {
+        flex: 0 0 180px; 
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+    .info-item span {
+        flex: 1;
+        font-weight: 600;
+        color: var(--text-main);
+    }
+    
+    /* Fiyat ve Stok Rozetleri */
+    .old-price {
+        text-decoration: line-through;
+        color: var(--text-muted);
+        margin-right: 10px;
+        font-size: 0.9em;
+        font-weight: normal !important;
+    }
+    .new-price {
+        font-weight: 700 !important;
+        color: var(--danger-color);
+        font-size: 1em;
+    }
+    .badge {
+        padding: 0.35em 0.65em;
+        font-size: 0.8em;
+        font-weight: 700;
+        border-radius: 0.25rem;
+        white-space: nowrap;
+    }
+    .badge-success { background-color: var(--success-color); color: white; }
+    .badge-danger { background-color: var(--danger-color); color: white; }
+    .table-responsive { overflow-x: auto; }
+
+    /* VARYANT TABLOSU STİLLERİ (Eklendi/Düzeltildi) */
+    .variant-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 5px;
+    }
+    .variant-table thead th {
+        text-align: left;
+        padding: 10px;
+        border-bottom: 2px solid var(--border-color);
+        background-color: var(--header-bg);
+        font-weight: 600;
+        color: var(--text-main);
+    }
+    .variant-table tbody td {
+        padding: 10px;
+        border-bottom: 1px solid var(--border-color);
+        vertical-align: middle;
+        color: var(--text-main);
+    }
+    .variant-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+    .variant-table td:nth-child(4) { /* Stok adedi sütunu */
+        text-align: center;
+    }
+    
+    /* MOBİL UYUMLULUK */
+    @media (max-width: 992px) {
+        
+        .main-content-grid {
+            flex-direction: column;
+        }
+        .image-col { order: -1; flex: 1 1 auto; } /* Resim en üste, esnek */
+        .info-col { order: 1; }  /* Bilgiler alta */
+        
+        /* Başlık kartındaki düzenleme butonu mobil için de çalışır */
+
+        .tab-nav {
+            overflow-x: auto;
+            white-space: nowrap; 
+        }
+        .info-item strong {
+            flex: 0 0 140px; 
+        }
+    }
+
+/* ================================================= */
+/* ÜRÜN DÜZENLEME: MEVCUT GÖRSEL/RENK YÖNETİMİ İYİLEŞTİRMELERİ */
+/* ================================================= */
+
+/* Resim ve input'ları barındıran esnek konteyner */
+.image-data-inputs {
+    flex-grow: 1; 
+    display: flex;
+    align-items: center; /* Öğeleri dikeyde ortalar */
+    justify-content: flex-start;
+    margin-left: 15px; 
+    gap: 15px; /* Renk Adı ve Hex Kodu arasına boşluk */
+    flex-wrap: nowrap; /* Tek bir satırda kalmalarını sağlar */
+}
+
+/* Renk Adı Input Konteyneri */
+.image-data-inputs > div:nth-child(3) { /* 3. div: Renk Adı (Hidden input'lardan sonra) */
+    flex-basis: 35% !important; /* Renk Adı alanı için iyi bir genişlik */
+    min-width: 150px; /* Mobil uyumluluk için minimum genişlik */
+}
+
+/* Hex Kodu Input Konteyneri */
+.image-data-inputs > div:nth-child(4) { /* 4. div: Hex Kodu */
+    flex-basis: 20% !important; /* Hex Kodu alanı için genişlik */
+    min-width: 80px; /* Minimum genişlik güvencesi */
+}
+
+/* Renk Seçici (input[type="color"]) Boyutunu Büyütme */
+.image-color-hex-input {
+    /* Tarayıcı varsayılan boyutlarını geçersiz kılmak için */
+    padding: 0; /* İç boşluğu sıfırla */
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    
+    /* YÜKSEKLİK: Daha görünür bir yükseklik veriyoruz */
+    height: 34px !important; /* Standart form input'u yüksekliğine yakın */
+    width: 100% !important; 
+    box-sizing: border-box; 
+    cursor: pointer;
+}
+
+/* Label'ları daha okunaklı yapalım */
+.image-data-inputs label {
+    font-size: 0.9em !important; /* Etiket boyutunu biraz artırma */
+    font-weight: 600; /* Daha kalın yazı */
+    color: var(--text-main);
+    display: block; /* Tam genişlik kaplamasını sağlar */
+}
+

@@ -1,0 +1,387 @@
+/* Genel Ayarlar ve Değişkenler */
+:root {
+    --color-primary: #007bff; /* Mavi (Örn: Bağlantılar, Butonlar) */
+    --color-danger: #dc3545;  /* Kırmızı (Örn: Toplam Harcama) */
+    --color-success: #28a745; /* Yeşil (Örn: Aktif Durum) */
+    --color-secondary: #6c757d; /* Gri (Örn: Metinler) */
+    --card-border-radius: 0.75rem; /* Daha yumuşak köşeler */
+    --shadow-base: 0 0.5rem 1rem rgba(0, 0, 0, 0.05); /* Yumuşak gölge */
+    --bg-active: #d4edda;
+    --text-active: #155724;
+    --bg-passive: #f8d7da;
+    --text-passive: #721c24;
+}
+
+body {
+    background-color: #f8f9fc; /* Hafif gri arka plan */
+}
+
+/* KART GENEL STİLLERİ */
+.card {
+    border: none;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-base);
+    overflow: hidden;
+}
+
+/* KULLANICI BAŞLIK ALANI (.user-header-area) */
+.user-header-area {
+    background-color: #ffffff;
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-base);
+}
+
+.user-header-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    /* MOBİL İÇİN ÖNEMLİ: Butonun ve diğer elemanların dar alanda alt satıra geçmesini sağlar */
+    flex-wrap: wrap; 
+}
+
+.user-profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* FOTOĞRAF OLMADIĞINDAKİ İKONU TASARLAMAK İÇİN */
+.user-profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    color: var(--color-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    border: 3px solid #ced4da;
+    flex-shrink: 0;
+}
+
+.user-details-text h3 {
+    margin: 0;
+    font-weight: 700;
+    color: #343a40;
+}
+
+.user-status-badge {
+    margin-left: auto;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.status-success {
+    background-color: #d4edda;
+    color: var(--color-success);
+}
+.status-danger {
+    background-color: #f8d7da;
+    color: var(--color-danger);
+}
+
+
+/* ------------------------------------------------ */
+/* AKTİF/PASİF DURUM BUTONU STİLİ (GÜZELLEŞTİRİLMİŞ) */
+/* ------------------------------------------------ */
+
+.status-toggle-btn {
+    /* Genel Buton Stili */
+    min-width: 180px; 
+    padding: 0.75rem 1.25rem;
+    border-radius: 2rem; /* Daha yuvarlak buton */
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: none; /* Varsayılan border'ı kaldır */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; 
+    margin-left: auto; /* Sağ tarafa yasla */
+}
+
+/* Aktif (Success) Durum Stili */
+.btn-success {
+    background-color: var(--color-success) !important;
+    border-color: var(--color-success) !important;
+}
+.btn-success:hover {
+    background-color: #1e7e34 !important; /* Koyu yeşil hover */
+}
+
+/* Pasif (Danger) Durum Stili */
+.btn-danger {
+    background-color: var(--color-danger) !important;
+    border-color: var(--color-danger) !important;
+}
+.btn-danger:hover {
+    background-color: #bd2130 !important; /* Koyu kırmızı hover */
+}
+
+/* Aksiyon Metni Stili (PASİF YAP / AKTİF YAP) */
+.status-toggle-btn .small {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+/* GENEL BİLGİLER TABLOSU (.card-general-info) */
+.card-general-info .card-body {
+    padding: 0 !important;
+}
+
+.user-info-table th, .user-info-table td {
+    padding: 0.75rem 1.25rem;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+    font-size: 0.9rem;
+}
+
+.user-info-table th {
+    width: 35%;
+    background-color: #f7f7f7;
+    font-weight: 600;
+    color: #495057;
+}
+
+.user-info-table tr:first-child th, .user-info-table tr:first-child td {
+    border-top: none; 
+}
+
+/* SEKMELER (NAV TABS) STİLİ */
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--color-primary);
+    background-color: #fff;
+    border-bottom: 3px solid var(--color-primary); 
+}
+
+.tab-content {
+    padding: 1.5rem;
+}
+
+/* ÜRÜN VE FAVORİ KARTLARI İÇİN GRID YAPISI */
+.item-card-grid {
+    /* Masaüstü ve tablet için daha geniş kartlar */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    display: grid;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.order-item-card, .favorite-item-card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: var(--card-border-radius);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s;
+}
+
+.order-item-card:hover, .favorite-item-card:hover {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.1); 
+    border-color: var(--color-primary);
+}
+
+/* ÜRÜN RESMİ BOYUTU (Varsayılan - Büyük Ekran) */
+.item-card-img {
+    width: 60px; 
+    height: 60px; 
+    object-fit: cover;
+    border-radius: 0.5rem;
+    flex-shrink: 0; 
+}
+
+.item-card-details {
+    margin-left: 1rem;
+}
+
+.item-card-details strong {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    max-width: 100%;
+    font-size: 0.95rem;
+}
+
+/* SİPARİŞ DURUM ROZETLERİ */
+.order-status-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 0.25rem;
+}
+
+.status-Pending { 
+    background-color: #ffc107;
+    color: #ffffff; 
+}
+
+.status-Completed { 
+    background-color: #55d8a4;
+    color: #ffffff; 
+}
+
+.status-Cancelled { 
+    background-color: #dc3545;
+    color: #ffffff; 
+}
+
+.status-Shipped { 
+    background-color: #17a2b8;
+    color: #ffffff; 
+}
+
+.status-Delivered { 
+    background-color: #28a745;
+    color: #ffffff; 
+}
+
+.status-Processing { 
+    background-color: #b60c0c;
+    color: #ffffff; 
+}
+
+/* ADRESLER KISMI */
+.address-list-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 1rem;
+}
+
+.list-group-item {
+    border: 1px solid #e9ecef;
+    border-radius: var(--card-border-radius);
+    padding: 1.25rem;
+    background-color: #fff;
+}
+
+.default-address {
+    border-left: 5px solid var(--color-primary); 
+    background-color: #f7f7ff;
+}
+
+.address-title {
+    font-weight: 700;
+    color: #343a40;
+    font-size: 1.1rem;
+}
+
+/* SİPARİŞ DETAY TABLOSU STİLİ */
+.table-responsive {
+    border-radius: var(--card-border-radius);
+    overflow-x: auto; 
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f7f7f7;
+}
+
+.table thead th {
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+    vertical-align: middle;
+}
+
+
+/* ------------------------------------------------ */
+/* MOBİL DUYARLILIK KISMI (768px altı için) */
+/* ------------------------------------------------ */
+
+@media (max-width: 768px) {
+    /* BAŞLIK VE BUTON ALANI DÜZENLEMESİ */
+    .user-header-content {
+        flex-direction: column; /* Dikey sırala */
+        align-items: flex-start;
+    }
+    
+    .status-toggle-btn {
+        margin-top: 1rem;
+        margin-left: 0 !important;
+        width: 100%; /* Tam genişlik yap */
+        min-width: unset; 
+    }
+
+    /* ÜRÜN RESİMLERİNİ KÜÇÜLTME */
+    .item-card-img {
+        width: 40px; 
+        height: 40px; 
+        margin-right: 0.5rem; 
+    }
+
+    .item-card-details {
+        margin-left: 0.5rem; 
+    }
+
+    .item-card-details strong {
+        font-size: 0.9rem; 
+    }
+
+    .item-card-details p {
+        font-size: 0.75rem !important; 
+    }
+
+    /* ÜRÜN KARTLARININ İÇ BOŞLUĞUNU AZALTMA */
+    .order-item-card, .favorite-item-card {
+        padding: 0.75rem;
+    }
+
+    /* GRID YAPISINI TEK SÜTUNA ÇEVİRME */
+    .item-card-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    /* ADRES LİSTESİNİ TEK SÜTUNA ÇEVİRME */
+    .address-list-group {
+        grid-template-columns: 1fr;
+    }
+    
+    /* GENEL BİLGİLER TABLOSU KÜÇÜLTME */
+    .user-info-table th, .user-info-table td {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .user-header-area {
+        padding: 1rem; 
+    }
+    .user-profile-photo, .user-profile-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+    }
+    .user-details-text h3 {
+        font-size: 1.5rem;
+    }
+    .nav-tabs .nav-link {
+        padding: 0.75rem 0.75rem;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+}

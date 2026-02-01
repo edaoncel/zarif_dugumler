@@ -1,0 +1,502 @@
+/* E:\xampp\htdocs\sinem\css\users\home.css */
+
+/*==================================================*/
+/* KÖK DEĞİŞKENLER VE GENEL SIFIRLAMA */
+/*==================================================*/
+:root {
+  --color-primary: #333333; /* Koyu Gri/Siyah */
+  --color-accent: #800000; /* Koyu Bordo/Şarap Rengi */
+  --color-background: #FFFFFF; /* Tamamen Beyaz Zemin */
+  --color-link: #4A90E2; 
+  --color-white: #FFFFFF;
+    --color-light-grey: #f8f8f8; /* Mobil uygulama arka planı için */
+  --font-stack: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    --card-padding: 10px;
+    --mobile-side-margin: 10px; /* Telefon ekranı sağ-sol boşluk (Resimlerin kenara yapışmasını engeller) */
+}
+
+* {
+  box-sizing: border-box;
+    /* Köşeleri düzleştirmek için tüm elementlerde varsayılan border-radius'u sıfırlıyoruz */
+    border-radius: 0 !important; 
+}
+
+body {
+  font-family: var(--font-stack);
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-light-grey); /* Hafif Gri Arka Plan (Mobil uygulama hissi) */
+  color: var(--color-primary);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+.container {
+    /* Mobil uygulamalardaki gibi kenar boşlukları ekle */
+  width: 100%; 
+  max-width: 1300px;
+  margin: 0 auto;
+    padding: 10px var(--mobile-side-margin); 
+}
+
+/* Sistem Mesajları (Başarılı/Hata) */
+.system-message {
+  padding: 15px;
+  background-color: #f0fff0;
+  color: #388e3c;
+  border: 1px solid #c8e6c9;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/*==================================================*/
+/* 1. HEADER VE NAVİGASYON */
+/*==================================================*/
+.main-header {
+  background-color: var(--color-white);
+  padding: 10px var(--mobile-side-margin); /* Kenar boşluklarını kullan */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ededed;
+  height: 60px; 
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.main-header h1 a {
+  color: var(--color-primary);
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-info a {
+  color: var(--color-primary);
+  font-size: 1.3em; 
+  transition: color 0.3s;
+}
+
+.user-info a:hover {
+  color: var(--color-accent);
+}
+
+.welcome-text,
+.user-info a.login-btn,
+.user-info a.register-btn {
+  display: none; /* Mobil'de gizle */
+}
+
+/* 2. Kategori Navigasyonu (Mobil Uygulama Stili ve Alt Menü) */
+.category-nav {
+  background-color: var(--color-white);
+  border-bottom: 1px solid #ededed;
+  padding: 0; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  scrollbar-width: none; 
+}
+
+.category-nav::-webkit-scrollbar {
+  display: none; 
+}
+
+.main-category-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--mobile-side-margin);
+  display: flex;
+    overflow-x: auto; /* Yatay kaydırma */
+  justify-content: flex-start;
+}
+
+.category-item {
+    position: relative; 
+}
+
+.category-item a {
+  display: block;
+  padding: 10px 12px;
+  font-size: 0.85em; 
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.category-item a:hover,
+.category-item a.active {
+  color: var(--color-accent); 
+  border-bottom-color: var(--color-accent);
+}
+
+.arrow {
+    font-size: 0.7em;
+    margin-left: 5px;
+}
+
+/* Alt Menü Stilleri (Mobil Açılır) */
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--color-light-grey);
+    position: absolute; 
+    left: 0;
+    top: 100%;
+    width: 200px; 
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.submenu li a {
+    text-transform: none; 
+    padding: 8px 15px;
+    font-size: 0.9em;
+    font-weight: 500;
+    border-bottom: none;
+    border-left: 3px solid transparent;
+}
+.submenu li a:hover {
+    background-color: #ededed;
+    border-left-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+
+/*==================================================*/
+/* 3. PROMOSYON ALANI */
+/*==================================================*/
+.promotions {
+  background-color: var(--color-background); 
+  color: var(--color-primary);
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 10px;
+  border: 1px solid #eee;
+  box-shadow: none; 
+}
+
+.promotions h2 {
+  font-size: 1.8em; 
+  font-weight: 800; 
+  margin: 0 0 10px 0;
+}
+
+.promotions p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/*==================================================*/
+/* 4. ÜRÜN LİSTESİ VE KARTLAR */
+/*==================================================*/
+.product-list h2 {
+  text-align: left;
+  font-size: 1.6em;
+  margin: 30px 0 20px 0;
+  padding-left: 5px;
+  font-weight: 700;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Mobil için 2 sütun */
+  gap: 10px; 
+    padding: 0;
+}
+
+.product-card {
+  background-color: var(--color-white);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card a {
+  display: block;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5; 
+  object-fit: cover;
+}
+
+.product-details {
+  padding: var(--card-padding);
+  text-align: left;
+}
+
+.product-name {
+  font-size: 0.9em;
+  font-weight: 600;
+  height: 2.2em; /* Metin limitinden sonra iki satırı garanti eder */
+  overflow: hidden;
+  margin: 0 0 3px 0;
+}
+
+.product-description {
+    font-size: 0.8em;
+    color: #888;
+    height: 1.8em; /* Tek satır açıklama için */
+    overflow: hidden;
+    margin: 0 0 5px 0;
+}
+
+.product-price {
+  font-weight: 700;
+  color: var(--color-accent);
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+/* Renk Seçenekleri Stilleri */
+.color-options {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.color-circle {
+    display: block;
+    width: 15px; 
+    height: 15px;
+    /* Köşeleri düzleştirdiğimiz için sadece bu elementin dairesel kalmasını sağlıyoruz */
+    border-radius: 50% !important; 
+    border: 1px solid #ddd;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.color-circle:hover {
+    transform: scale(1.2);
+    border-color: var(--color-primary);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+/* E:\xampp\htdocs\sinem\css\users\home.css */
+
+.product-image-wrapper {
+    position: relative; /* Butonları konumlandırmak için */
+    overflow: hidden; /* Kaydırıcının dışına taşan resimleri gizle */
+}
+
+.image-slider {
+    display: flex; /* Görselleri yan yana dizer */
+    width: 100%;
+    transition: transform 0.3s ease-in-out; /* Kaydırma efekti */
+}
+
+.slide-item {
+    min-width: 100%; /* Her bir resim kapsayıcısı kart genişliğinde olur */
+    box-sizing: border-box;
+    display: block;
+}
+
+.slide-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Navigasyon Butonları */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0; /* Başlangıçta gizle */
+    transition: opacity 0.2s;
+}
+
+.product-card:hover .slider-btn {
+    opacity: 1; /* Fare üzerine gelince göster */
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/*==================================================*/
+/* FOOTER */
+/*==================================================*/
+.main-footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--color-primary);
+  color: #ccc;
+  margin-top: 30px;
+  font-size: 0.85em;
+}
+
+/* E:\xampp\htdocs\sinem\css\users\home.css (2. Kategori Navigasyonu bölümüne ekleyin) */
+
+/* Hamburger Butonunun Yerleşimi ve Görünümü (Sadece Mobil) */
+.mobile-menu-toggle-container {
+    display: flex; /* Mobil'de görünür */
+    align-items: center;
+    padding: 10px var(--mobile-side-margin);
+    background-color: var(--color-white);
+    border-bottom: 1px solid #ededed;
+}
+
+.menu-label {
+    font-size: 0.9em;
+    font-weight: 700;
+    margin-left: 10px;
+    color: var(--color-accent);
+}
+
+.hamburger-menu-toggle {
+    width: 30px;
+    height: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0;
+    transition: transform 0.3s;
+}
+
+.hamburger-menu-toggle .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menü Açıkken Buton Animasyonu (X şekline dönüşüm) */
+.hamburger-menu-toggle[aria-expanded="true"] .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu-toggle[aria-expanded="true"] .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.hamburger-menu-toggle[aria-expanded="true"] .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* Kategori Navigasyonu Mobil Görünüm Düzenlemesi */
+.category-nav {
+    /* Mobil'de varsayılan olarak menüyü dikey açılır hale getiriyoruz */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    position: relative;
+    z-index: 900;
+}
+
+
+.main-category-list {
+    /* Mobil'de dikey listeye dönüştür */
+    flex-direction: column;
+    overflow-x: visible; /* Yatay kaydırmayı iptal et */
+    padding: 0; /* Kenar boşlukları yok */
+    border-top: 1px solid #eee;
+}
+
+.category-item {
+    border-bottom: 1px solid #eee;
+}
+
+.category-item a {
+    /* Mobil'de daha geniş dokunma alanı */
+    padding: 12px var(--mobile-side-margin);
+    font-size: 1em;
+    font-weight: 500;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+.category-item a:hover {
+    background-color: var(--color-light-grey);
+    border-bottom-color: transparent;
+}
+
+
+/* Alt Menü Stillerinin Mobil İçin Konumunu Düzeltme */
+.submenu {
+    /* Mobil'de menü içindeki konumu */
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    background-color: #ededed;
+}
+.submenu li a {
+    padding-left: calc(var(--mobile-side-margin) + 15px);
+    border-left: none;
+}
+.submenu li a:hover {
+    background-color: #e0e0e0;
+}
+
+
+/* Mobil cihazlar (767px ve altı) için yatay kaydırma */
+@media screen and (max-width: 767px) {
+    /* Tabloyu taşıyan ana div'e kaydırma özelliği ekle */
+    .product-list-table {
+        /* Yatay kaydırmayı etkinleştir */
+        overflow-x: auto; 
+        width: 100%;
+    }
+    
+    /* Tablonun kendisinin ekranı aşmasını sağla */
+    .product-list-table .data-table {
+        /* Minimum genişliği belirle, bu 8 sütunlu tablonun rahatça görünmesi için yeterli olmalı */
+        min-width: 800px; 
+    }
+    
+    /* İşlem butonlarının sıkışmaması için boşluklarını artır */
+    .product-list-table td[data-label="İşlemler"],
+    .product-list-table th:last-child {
+        min-width: 100px; /* İşlemler sütunu için yeterli alan */
+        padding: 5px 10px;
+    }
+    
+    /* Gerekirse diğer önemli sütunlar için de min-width belirleyebilirsiniz */
+    .product-list-table td[data-label="Adı"] {
+        min-width: 150px;
+    }
+    
+}
