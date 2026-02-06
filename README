@@ -4,28 +4,20 @@ http://localhost/phpmyadmin/
 
 xampp çalıştır
 
-
-// tablo silmek için
-execute(1, "DROP TABLE IF EXISTS iletisim");
-// tablo ve sütun oluşturmak için
-execute(2, "CREATE TABLE IF NOT EXISTS deneme (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    ad VARCHAR(100),
-    soyad VARCHAR(100)
-)");
-// tabloya veri eklemek için
-execute(3, "INSERT INTO deneme (ad, soyad) VALUES ('eda', 'öncel')");
-// veriyi güncellemek için
-execute(4, "UPDATE deneme SET ad = 'fatma' WHERE id = 3");
-// tablodaki veriyi silmek için
-execute(5, "DELETE FROM deneme WHERE id = 4");
-// tabloya veri eklemek için
-execute(6, "INSERT INTO deneme (ad, soyad) VALUES ('eda', 'öncel')");
-drop tabloyu silme
-
-#0b4426
-#b8ad88
-#efeff5
-#7d262a    hover #c0392b
-#b8ad8870
-#8bae89
+-- tablo silmek için
+-- execute(1, "DROP TABLE IF EXISTS iletisim");
+-- tablo ve sütun oluşturmak için
+-- execute(2, "CREATE TABLE IF NOT EXISTS deneme (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     ad VARCHAR(100),
+--     soyad VARCHAR(100)
+-- )");
+-- tabloya veri eklemek için
+-- execute(3, "INSERT INTO deneme (ad, soyad) VALUES ('eda', 'öncel')");
+-- veriyi güncellemek için
+-- execute(4, "UPDATE deneme SET ad = 'fatma' WHERE id = 3");
+-- tablodaki veriyi silmek için
+-- execute(5, "DELETE FROM deneme WHERE id = 4");
+-- tabloya veri eklemek için
+-- execute(6, "INSERT INTO deneme (ad, soyad) VALUES ('eda', 'öncel')");
+-- drop tabloyu silme
